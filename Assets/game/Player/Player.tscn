@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://demupt73vnucg"]
+
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_4vurp"]
+[ext_resource type="Texture2D" uid="uid://clfqw6mm8qtfp" path="res://icon.svg" id="2_c3dgq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t74sn"]
+size = Vector2(127, 127)
+
+[sub_resource type="Theme" id="Theme_04t5k"]
+default_font_size = 10
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(0.25, 0.25)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_4vurp")
+health = 50
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_c3dgq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_t74sn")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.75, 0.75)
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color(0, 1, 1, 1)
+offset_left = -764.0
+offset_top = -436.0
+offset_right = -144.0
+offset_bottom = -352.0
+theme = SubResource("Theme_04t5k")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
