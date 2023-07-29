@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://ciw5ee6ef5du8"]
+
+[ext_resource type="Script" path="res://Menu/Made_by.gd" id="1_luuoj"]
+
+[node name="Made_by" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_luuoj")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 262.0
+offset_bottom = 42.0
+text = "Programming: Fallen & Vidokal"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 48.0
+offset_right = 269.0
+offset_bottom = 74.0
+text = "Art and animation: Raddragons"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 83.0
+offset_right = 264.0
+offset_bottom = 109.0
+text = "Music and SFX: SirLampsALot"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 115.0
+offset_right = 185.0
+offset_bottom = 146.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Continue" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Continue
+"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
